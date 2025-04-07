@@ -1,33 +1,42 @@
 {
-    "repo_credential_id": "jenkins-ajaib",
-    "repo_owner_name": "ajaibid",
-    "pipeline_script_name": "Jenkinsfile",
-    "days_to_keep": 3,
-    "num_to_keep": 5,
-    "periodic_trigger_definition": 1,
-    "tribe_name": "alpaca",
-    "squads": [
+  "repo_credential_id": "jenkins-ajaib",
+  "repo_owner_name": "ajaibid",
+  "pipeline_script_name": "Jenkinsfile",
+  "days_to_keep": 3,
+  "num_to_keep": 5,
+  "periodic_trigger_definition": 1,
+  "tribe_name": "alpaca",
+  "squads": [
+    {
+      "project": [
         {
-            "project": [
-                {
-                    "name": "foreign-stock-wallet",
-                    "repo": "foreign-stock-wallet",
-                    "dockerfile_path": "./Dockerfile",
-                    "pr_job": true,
-                    "use_k8s": true,
-                    "auto_deploy": false,
-                    "disable_sonarqube_stage": false
-                },
-                {
-                    "name": "foreign-stock-data",
-                    "repo": "foreign-stock-data",
-                    "dockerfile_path": "./Dockerfile",
-                    "pr_job": true,
-                    "use_k8s": true,
-                    "auto_deploy": false,
-                    "disable_sonarqube_stage": false
-                }
-            ]
+          "name": "foreign-stock-wallet",
+          "repo": "foreign-stock-wallet",
+          "dockerfile_path": "./Dockerfile",
+          "pr_job": true,
+          "use_k8s": true,
+          "auto_deploy": false,
+          "disable_sonarqube_stage": false
+        },
+        {
+          "name": "foreign-stock-data",
+          "repo": "foreign-stock-data",
+          "dockerfile_path": "./Dockerfile",
+          "pr_job": true,
+          "use_k8s": true,
+          "auto_deploy": false,
+          "disable_sonarqube_stage": false
+        },
+        {
+          "name": "alpaca-test",
+          "repo": "alpaca-test",
+          "dockerfile_path": "alpaca-test/Dockerfile",
+          "pr_job": true,
+          "use_k8s": true,
+          "auto_deploy": false,
+          "disable_sonarqube_stage": false
         }
-    ]
+      ]
+    }
+  ]
 }
