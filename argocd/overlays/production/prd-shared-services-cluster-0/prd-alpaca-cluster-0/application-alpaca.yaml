@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prd-alpaca-prototype-api
+  namespace: argocd
+spec:
+  destination:
+    namespace: prd-alpaca-prototype-api-ns
+    name: gke_ajaib-prd-alpaca_asia-southeast2_ajaib-prd-alpaca-cluster-0
+  project: alpaca
+  source:
+    path: app/production/prd-alpaca/ALPACA-PROTOTYPE-API
+    repoURL: https://github.com/ajaibid/infra-k8s-app-manifest
+    targetRevision: HEAD
+  ignoreDifferences:
+    - group: flagger.app
+      kind: Canary
+      jsonPointers:
+        - /spec/analysis/maxWeight
+        - /spec/skipAnalysis
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        istio-injection: enabled
+    syncOptions:
+    - CreateNamespace=true
+    - PruneLast=true
+    - RespectIgnoreDifferences=true

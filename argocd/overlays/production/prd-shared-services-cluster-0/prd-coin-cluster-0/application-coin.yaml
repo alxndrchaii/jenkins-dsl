@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prd-coin-data-websocket
+  namespace: argocd
+spec:
+  destination:
+    namespace: prd-coin-data-websocket-ns
+    name: gke_ajaib-prd-coin_asia-southeast2_ajaib-prd-coin-cluster-0
+  project: coin
+  source:
+    path: app/production/prd-coin/COIN-DATA-WEBSOCKET
+    repoURL: https://github.com/ajaibid/infra-k8s-app-manifest
+    targetRevision: HEAD
+  ignoreDifferences:
+    - group: flagger.app
+      kind: Canary
+      jsonPointers:
+        - /spec/analysis/maxWeight
+        - /spec/skipAnalysis
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        istio-injection: enabled
+    syncOptions:
+    - CreateNamespace=true
+    - PruneLast=true
+    - RespectIgnoreDifferences=true
