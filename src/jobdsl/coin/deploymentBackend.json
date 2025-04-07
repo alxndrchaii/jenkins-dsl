@@ -41,6 +41,15 @@
           "use_k8s": true,
           "auto_deploy": false,
           "disable_sonarqube_stage": false
+        },
+        {
+          "name": "halo-dek",
+          "repo": "halo-dek",
+          "dockerfile_path": "halo-dek/Dockerfile",
+          "pr_job": true,
+          "use_k8s": true,
+          "auto_deploy": false,
+          "disable_sonarqube_stage": false
         }
       ]
     }
