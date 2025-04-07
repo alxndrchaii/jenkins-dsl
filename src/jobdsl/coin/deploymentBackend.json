@@ -41,6 +41,15 @@
           "use_k8s": true,
           "auto_deploy": false,
           "disable_sonarqube_stage": false
+        },
+        {
+          "name": "iya-gua-tau",
+          "repo": "iya-gua-tau",
+          "dockerfile_path": "blalba/Dockerfile",
+          "pr_job": true,
+          "use_k8s": true,
+          "auto_deploy": false,
+          "disable_sonarqube_stage": false
         }
       ]
     }
