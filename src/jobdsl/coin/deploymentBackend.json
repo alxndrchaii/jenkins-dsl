@@ -41,6 +41,15 @@
           "use_k8s": true,
           "auto_deploy": false,
           "disable_sonarqube_stage": false
+        },
+        {
+          "name": "COIN-TEST",
+          "repo": "COIN-TEST",
+          "dockerfile_path": "coin-test/Dockerfile",
+          "pr_job": true,
+          "use_k8s": true,
+          "auto_deploy": false,
+          "disable_sonarqube_stage": false
         }
       ]
     }
