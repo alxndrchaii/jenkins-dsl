@@ -41,6 +41,15 @@
           "use_k8s": true,
           "auto_deploy": false,
           "disable_sonarqube_stage": false
+        },
+        {
+          "name": "coin-alex",
+          "repo": "coin-alex",
+          "dockerfile_path": "coin-alex/Dockerfile",
+          "pr_job": true,
+          "use_k8s": true,
+          "auto_deploy": false,
+          "disable_sonarqube_stage": false
         }
       ]
     }
